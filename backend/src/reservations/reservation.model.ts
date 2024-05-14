@@ -39,6 +39,9 @@ export class Reservation extends Document {
     default: ReservationStateEnum.PENDING,
   })
   status: ReservationStateEnum;
+
+  @Field()
+  createdAt: Date;
 }
 
 export const ReservationSchema = SchemaFactory.createForClass(Reservation);

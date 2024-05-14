@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Link, Outlet, Route, Routes } from 'react-router-dom';
-import Employee from './Employee';
+import { Employee } from './Employee';
 import { Guest, GuestEdit } from './Guest';
 
 function App() {
@@ -14,7 +14,9 @@ function App() {
             <Route index element={<Guest />} />
             <Route path=":id" element={<GuestEdit />} />
           </Route>
-          <Route path="employee" element={<Employee />} />
+          <Route path="employee">
+            <Route index element={<Employee />} />
+          </Route>
           <Route path="*" element={<NoMatch />} />
         </Route>
       </Routes>

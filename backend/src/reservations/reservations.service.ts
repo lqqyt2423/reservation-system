@@ -31,7 +31,7 @@ export class ReservationsService {
       };
     }
     if (status) query.status = status;
-    return await this.reservationModel.find(query);
+    return await this.reservationModel.find(query).sort({ createdAt: -1 });
   }
 
   async findOne(id: string) {
