@@ -1,14 +1,19 @@
 import React from 'react';
 import './App.css';
 import { Link, Outlet, Route, Routes } from 'react-router-dom';
+import Employee from './Employee';
+import { Guest, GuestEdit } from './Guest';
 
 function App() {
   return (
-    <div>
+    <div className="container-xl">
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="guest" element={<Guest />} />
+          <Route path="guest">
+            <Route index element={<Guest />} />
+            <Route path=":id" element={<GuestEdit />} />
+          </Route>
           <Route path="employee" element={<Employee />} />
           <Route path="*" element={<NoMatch />} />
         </Route>
@@ -20,21 +25,6 @@ function App() {
 function Layout() {
   return (
     <div>
-      <h1>Reservation System</h1>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/guest">Guest</Link>
-          </li>
-          <li>
-            <Link to="/employee">Employee</Link>
-          </li>
-        </ul>
-      </nav>
-
       <Outlet />
     </div>
   );
@@ -43,23 +33,17 @@ function Layout() {
 function Home() {
   return (
     <div>
-      <h2>Home</h2>
-    </div>
-  );
-}
-
-function Guest() {
-  return (
-    <div>
-      <h2>Guest</h2>
-    </div>
-  );
-}
-
-function Employee() {
-  return (
-    <div>
-      <h2>Employee</h2>
+      <h1>Reservation System</h1>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/guest">Guest Entry</Link>
+          </li>
+          <li>
+            <Link to="/employee">Employee Entry</Link>
+          </li>
+        </ul>
+      </nav>
     </div>
   );
 }

@@ -19,7 +19,7 @@ import {
 } from './reservation.dto';
 import { ObjectIdValidationPipe, ZodValidationPipe } from '../validation.pipe';
 
-@Controller('reservations')
+@Controller('api/reservations')
 export class ReservationsController {
   constructor(private readonly reservationsService: ReservationsService) {}
 
