@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.css';
 import { Link, Outlet, Route, Routes } from 'react-router-dom';
 import { Employee } from './Employee';

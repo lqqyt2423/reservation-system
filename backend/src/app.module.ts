@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ReservationsModule } from './reservations/reservations.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
+import { ServeStaticModule } from '@nestjs/serve-static';
 
 @Module({
   imports: [
@@ -15,8 +15,11 @@ import { join } from 'path';
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
     }),
     ReservationsModule,
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '../../frontend/dist'),
+    }),
   ],
-  controllers: [AppController],
+  controllers: [],
   providers: [AppService],
 })
 export class AppModule {}

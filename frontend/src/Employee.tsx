@@ -1,6 +1,6 @@
 import { gql, useMutation, useQuery } from '@apollo/client';
 import dayjs from 'dayjs';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 interface Reservation {
   _id: string;
