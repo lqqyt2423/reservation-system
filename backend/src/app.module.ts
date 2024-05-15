@@ -9,7 +9,16 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost:27017/reservation_system'),
+    MongooseModule.forRootAsync({
+      useFactory: () => {
+        const MONGO_URI =
+          process.env.MONGO_URI ||
+          'mongodb://localhost:27017/reservation_system';
+        return {
+          uri: MONGO_URI,
+        };
+      },
+    }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
