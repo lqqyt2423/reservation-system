@@ -18,7 +18,9 @@ describe('ReservationsService', () => {
           provide: getModelToken(Reservation.name),
           useValue: {
             create: jest.fn(() => mockReservation),
-            find: jest.fn(() => []),
+            find: jest.fn(() => ({
+              sort: () => [],
+            })),
             findById: jest.fn(() => mockReservation),
             findByIdAndUpdate: jest.fn(() => mockReservation),
           },
