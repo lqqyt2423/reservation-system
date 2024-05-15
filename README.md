@@ -48,3 +48,13 @@ This design provides flexibility in interface selection, catering to different u
 
 - RESTful API simplifies guest interactions with standard HTTP methods.
 - GraphQL empowers restaurant employees with advanced querying and mutation capabilities, ensuring precise data retrieval as needed.
+
+## Screenshot
+
+### Guest
+
+![Guest](./docs/guest-screenshot.png)
+
+### Employee
+
+![Employee](./docs/employee-screenshot.png)
